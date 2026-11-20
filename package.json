@@ -6,7 +6,7 @@
   "description": "A 60-day discipline operating system for the Muslim who is done knowing and ready to do.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/copy-static.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "content:build": "tsx scripts/export-content.ts",

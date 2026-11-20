@@ -85,7 +85,9 @@ Beyond the app, the repository now includes an editable, sellable content layer:
   manuscript, plus per-module files, a 60-day schedule, lesson index, and a facilitator overview.
 - **[The printable pack](printables/README.md)** — eight print-ready planners and trackers (contract,
   daily page, weekly review, wall map, 60-day tracker, milestone review, private log, Qur'an ledger).
-  Print from the HTML or use the **[complete PDF](printables/pdf/00-complete-pack.pdf)**.
+  Print from the HTML or use the **[complete PDF](printables/pdf/00-complete-pack.pdf)**. The gallery
+  is also published with the app at
+  [imrankhansaami.github.io/mujahid-mode/printables](https://imrankhansaami.github.io/mujahid-mode/printables/index.html).
 
 Everything is editable: the Markdown can be typeset into a book or imported into a course platform,
 and the printables are plain HTML/CSS with a one-file rebrand (`printables/brand.js`).

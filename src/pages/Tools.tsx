@@ -12,6 +12,7 @@ import { useStore } from '../store/useStore'
 import { todayKey } from '../lib/date'
 import { PageHeader } from '../components/ui'
 import type { ReactNode } from 'react'
+import { Printer } from 'lucide-react'
 
 export function Tools() {
   const state = useStore()
@@ -103,6 +104,30 @@ export function Tools() {
             </p>
           </Link>
         ))}
+      </div>
+
+      <div className="mt-4">
+        <a
+          href={`${import.meta.env.BASE_URL}printables/index.html`}
+          target="_blank"
+          rel="noreferrer"
+          className="card group flex items-start gap-4 p-5 transition-colors hover:border-gold-dim/70 hover:bg-raised/40 sm:p-6"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-coal text-gold">
+            <Printer className="h-5 w-5" />
+          </span>
+          <div className="min-w-0 flex-1">
+            <h2 className="display text-2xl text-bone">Printable Pack</h2>
+            <p className="mt-1.5 text-sm leading-relaxed text-muted">
+              Eight paper sheets for the sixty days: contract, daily page, weekly review, wall map,
+              tracker, milestone review, private log, and Qur’an ledger.
+            </p>
+            <p className="mt-2 text-[0.68rem] uppercase tracking-[0.14em] text-faint">
+              A4 · PDF + editable HTML
+            </p>
+          </div>
+          <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-faint transition-colors group-hover:text-gold" />
+        </a>
       </div>
 
       <div className="mt-6 rounded-2xl border border-line-soft bg-coal p-5">
