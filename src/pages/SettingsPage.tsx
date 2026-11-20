@@ -88,6 +88,7 @@ export function SettingsPage() {
                 <span className="eyebrow">Name</span>
                 <input
                   className="field mt-1.5"
+                  aria-label="Name"
                   value={state.profile.name}
                   onChange={(e) => updateProfile({ name: e.target.value })}
                 />
@@ -96,6 +97,7 @@ export function SettingsPage() {
                 <span className="eyebrow">Niyyah</span>
                 <textarea
                   className="field mt-1.5 min-h-20 resize-y"
+                  aria-label="Niyyah"
                   value={state.profile.niyyah}
                   onChange={(e) => updateProfile({ niyyah: e.target.value })}
                 />
@@ -104,6 +106,7 @@ export function SettingsPage() {
                 <span className="eyebrow">A winning day</span>
                 <textarea
                   className="field mt-1.5 min-h-20 resize-y"
+                  aria-label="A winning day"
                   value={state.profile.win}
                   onChange={(e) => updateProfile({ win: e.target.value })}
                 />

@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom'
 import {
   ArrowRight,
   BookOpen,
+  CalendarDays,
   Check,
+  ChevronLeft,
+  ChevronRight,
   Circle,
   Compass,
   Flame,
@@ -13,7 +16,7 @@ import {
 import { useStore } from '../store/useStore'
 import { getLesson, getModule } from '../data/curriculum'
 import { planFor } from '../lib/plan'
-import { formatLong, formatMedium, todayKey } from '../lib/date'
+import { addDays, diffDays, formatLong, formatMedium, todayKey } from '../lib/date'
 import {
   currentPlanDay,
   isHeld,
@@ -39,22 +42,20 @@ const TYPE_LABEL: Record<PlanDay['type'], string> = {
 export function Today() {
   const state = useStore()
   const today = todayKey()
+  const [date, setDate] = useState(today)
   const { profile } = state
   const plan = useMemo(() => planFor(profile), [profile.startDate])
+  const planEnd = addDays(profile.startDate, 59)
+  const latest = planEnd < today ? planEnd : today
   const rawDay = useMemo(
-    () =>
-      Math.round(
-        (new Date(today + 'T00:00:00').getTime() -
-          new Date(profile.startDate + 'T00:00:00').getTime()) /
-          86_400_000,
-      ) + 1,
-    [profile.startDate, today],
+    () => diffDays(profile.startDate, date) + 1,
+    [profile.startDate, date],
   )
   const day = Math.min(60, Math.max(1, rawDay))
   const planDay = plan.find((d) => d.day === day)
   const lesson = planDay?.lessonId ? getLesson(planDay.lessonId) : undefined
   const mod = lesson ? getModule(lesson.moduleId) : undefined
-  const log = state.days[today]
+  const log = state.days[date]
   const target = profile.quranTarget || 1
   const score = scoreDay(log, target)
   const held = isHeld(score)
@@ -62,13 +63,15 @@ export function Today() {
   const currentStreak = streak(state.days, profile, today)
   const lessonDone = lesson ? Boolean(state.lessonsDone[lesson.id]) : false
   const dayNumber = currentPlanDay(profile)
+  const isToday = date === today
+  const canBrowse = rawDay >= 1 && rawDay <= 60
 
   if (rawDay < 1) return <BeforeStart startDate={profile.startDate} today={today} />
 
   return (
     <div className="animate-rise">
       <PageHeader
-        eyebrow={`${formatLong(today)} · Week ${Math.min(9, Math.ceil(day / 7))}`}
+        eyebrow={`${formatLong(date)} · Week ${Math.min(9, Math.ceil(day / 7))}`}
         title={
           <>
             {greetingForNow()}
@@ -78,17 +81,61 @@ export function Today() {
         description={
           rawDay > 60
             ? 'The sixty days are complete. The system is yours now — keep the five, keep the review, keep the return.'
-            : 'One day. Five commitments. No negotiation with the mood.'
+            : isToday
+              ? 'One day. Five commitments. No negotiation with the mood.'
+              : 'A day already lived. Tell the truth about it, then return to today.'
         }
         action={
-          <div className="flex items-center gap-2">
-            <Badge tone="gold">Day {dayNumber} / 60</Badge>
+          <div className="flex flex-wrap items-center gap-2">
+            {!isToday && canBrowse ? <Badge tone="neutral">Reviewing</Badge> : null}
+            <Badge tone="gold">
+              <span className="whitespace-nowrap">Day {dayNumber} / 60</span>
+            </Badge>
             <Badge tone={currentStreak > 0 ? 'emerald' : 'neutral'}>
               <Flame className="h-3 w-3" /> {currentStreak} streak
             </Badge>
           </div>
         }
       />
+
+      {canBrowse ? (
+        <div className="mb-4 flex items-center justify-between gap-2 rounded-xl border border-line bg-surface px-2.5 py-2">
+          <button
+            type="button"
+            aria-label="Previous day"
+            disabled={date <= profile.startDate}
+            onClick={() => setDate(addDays(date, -1))}
+            className="flex h-7 w-7 items-center justify-center rounded-full text-muted transition-colors hover:bg-raised hover:text-bone disabled:opacity-25"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <div className="flex min-w-0 items-center gap-2 text-[0.7rem]">
+            <CalendarDays className="h-3.5 w-3.5 shrink-0 text-gold" />
+            <span className="truncate text-bone sm:hidden">{isToday ? 'Today' : formatMedium(date)}</span>
+            <span className="hidden truncate text-faint sm:inline">{formatLong(date)}</span>
+          </div>
+          <div className="flex shrink-0 items-center gap-2">
+            {!isToday ? (
+              <button
+                type="button"
+                onClick={() => setDate(today)}
+                className="text-[0.65rem] text-gold hover:underline"
+              >
+                Back to today
+              </button>
+            ) : null}
+            <button
+              type="button"
+              aria-label="Next day"
+              disabled={date >= latest}
+              onClick={() => setDate(addDays(date, 1))}
+              className="flex h-7 w-7 items-center justify-center rounded-full text-muted transition-colors hover:bg-raised hover:text-bone disabled:opacity-25"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      ) : null}
 
       {rawDay > 60 ? (
         <div className="mb-6">
@@ -165,7 +212,7 @@ export function Today() {
           </div>
 
           <div className="flex items-center justify-between gap-6 border-t border-line-soft pt-6 lg:flex-col lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-            <Ring value={score} label="today" sub={held ? 'held' : scoreLabel(score)} />
+            <Ring value={score} label={isToday ? 'today' : 'that day'} sub={held ? 'held' : scoreLabel(score)} />
             <div className="space-y-3 text-right lg:text-center">
               <div>
                 <p className="font-display text-2xl text-bone">{summary.consistency}%</p>
@@ -182,23 +229,23 @@ export function Today() {
 
       <div className="mt-6 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="card p-5 sm:p-6">
-          <PrayerTracker date={today} log={log} />
+          <PrayerTracker date={date} log={log} />
           <div className="mt-6 border-t border-line-soft pt-5">
-            <QuranTracker date={today} log={log} target={target} />
+            <QuranTracker date={date} log={log} target={target} />
           </div>
           <div className="mt-6 border-t border-line-soft pt-5">
-            <Commitments date={today} log={log} />
+            <Commitments date={date} log={log} />
           </div>
         </div>
 
         <div className="space-y-5">
-          <DrillsCard lessonDrills={lesson?.drills ?? []} hasLesson={Boolean(lesson)} planDay={planDay} />
-          <ReflectionCard prompts={lesson?.prompts ?? genericPrompts(planDay)} />
+          <DrillsCard lessonDrills={lesson?.drills ?? []} hasLesson={Boolean(lesson)} planDay={planDay} date={date} />
+          <ReflectionCard prompts={lesson?.prompts ?? genericPrompts(planDay)} date={date} />
         </div>
       </div>
 
       <div className="mt-6 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-        <DayNote key={today} date={today} initial={log?.note ?? ''} />
+        <DayNote key={date} date={date} initial={log?.note ?? ''} />
         <div className="space-y-4">
           <Callout tone="gold" title="The floor">
             On a bad day, five prayers, one page, one honest log, one small action. The floor is not
@@ -245,14 +292,15 @@ function DrillsCard({
   lessonDrills,
   hasLesson,
   planDay,
+  date,
 }: {
   lessonDrills: Drill[]
   hasLesson: boolean
   planDay?: PlanDay
+  date: string
 }) {
   const drills = useStore((s) => s.drills)
   const toggleDrill = useStore((s) => s.toggleDrill)
-  const today = todayKey()
 
   if (!hasLesson) {
     return (
@@ -287,7 +335,7 @@ function DrillsCard({
       <SectionTitle title="Today’s drills" hint="Action, not consumption" />
       <div className="space-y-2.5">
         {lessonDrills.map((drill) => {
-          const key = drillKey(drill, today)
+          const key = drillKey(drill, date)
           const done = Boolean(drills[key])
           return (
             <button
@@ -341,16 +389,15 @@ function genericPrompts(planDay?: PlanDay): string[] {
   return GENERIC_PROMPTS
 }
 
-function ReflectionCard({ prompts }: { prompts: string[] }) {
+function ReflectionCard({ prompts, date }: { prompts: string[]; date: string }) {
   const addJournal = useStore((s) => s.addJournal)
   const [prompt, setPrompt] = useState(prompts[0] ?? GENERIC_PROMPTS[0])
   const [body, setBody] = useState('')
   const [saved, setSaved] = useState(false)
-  const today = todayKey()
 
   function save() {
     if (!body.trim()) return
-    addJournal({ date: today, prompt, body: body.trim() })
+    addJournal({ date, prompt, body: body.trim() })
     setBody('')
     setSaved(true)
     window.setTimeout(() => setSaved(false), 2400)
