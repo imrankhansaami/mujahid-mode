@@ -1,5 +1,9 @@
 # The Mujāhid Mode Framework
 
+> This is the developer overview. The full, standalone manuscript — with facilitation notes,
+> worksheets, appendices, and publishing guidance — is in
+> [`content/framework/mujahid-mode-framework.md`](../content/framework/mujahid-mode-framework.md).
+
 > Discipline is not the absence of desire. It is the presence of a structure that outlasts the
 > mood.
 

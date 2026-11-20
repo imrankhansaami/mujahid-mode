@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The 60-Day Map · Mujāhid Mode</title>
+    <link rel="stylesheet" href="print.css" />
+    <style>
+      .legend {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1mm 6mm;
+        margin-top: 2mm;
+        font-size: 6.2pt;
+        color: var(--muted);
+      }
+      .legend b {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .map-grid {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 1.3mm;
+        margin-top: 2mm;
+      }
+      .map-cell {
+        border: 0.6pt solid var(--line-strong);
+        min-height: 25.5mm;
+        padding: 1.5mm 1.4mm 1.2mm;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      .map-cell .day {
+        font-family: var(--serif);
+        font-size: 10pt;
+        line-height: 1;
+      }
+      .map-cell .date-line {
+        margin-top: 1.6mm;
+        min-height: 4.5mm;
+        border-bottom: 0.5pt solid var(--line);
+      }
+      .map-cell .held {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 1.2mm;
+        font-size: 4.6pt;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+      .map-cell .held .box {
+        width: 2.7mm;
+        height: 2.7mm;
+      }
+      .map-cell.milestone {
+        border: 1.2pt solid var(--accent);
+        background: var(--wash);
+      }
+      .map-cell.milestone .day {
+        color: var(--accent);
+      }
+      .map-cell .diamond {
+        position: absolute;
+        top: 1.3mm;
+        right: 1.3mm;
+        color: var(--accent);
+        font-size: 6pt;
+      }
+      .map-cell.review {
+        background: #fbfaf6;
+      }
+      .map-cell.review .day::after {
+        content: ' review';
+        font-family: var(--sans);
+        font-size: 4.2pt;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        vertical-align: 1mm;
+      }
+      .map-note {
+        display: flex;
+        justify-content: space-between;
+        gap: 6mm;
+        margin-top: 2.5mm;
+        font-size: 6.4pt;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar no-print">
+      <a href="index.html">← All printables</a>
+      <span class="toolbar-title">Printable pack · Sheet 04</span>
+      <button type="button" data-print>Print / Save PDF</button>
+    </div>
+
+    <div class="sheet">
+      <header class="masthead">
+        <div class="brand">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M24 4 44 24 24 44 4 24 24 4Z" stroke="currentColor" stroke-width="1.6" />
+            <path d="M24 12 36 24 24 36 12 24 24 12Z" fill="currentColor" fill-opacity=".1" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="24" cy="24" r="2.4" fill="currentColor" />
+          </svg>
+          <div>
+            <div class="brand-name" data-brand>Mujāhid Mode</div>
+            <div class="brand-tag" data-tagline>The disciplined Muslim code</div>
+          </div>
+        </div>
+        <div class="doc-meta">
+          <div class="doc-title">Sheet 04 · The 60-day map</div>
+          <div>Wall map · A4 portrait</div>
+        </div>
+      </header>
+
+      <div class="title-block" style="margin-bottom: 2mm">
+        <p class="kicker">Sixty days · One system</p>
+        <h1>The 60-Day Map</h1>
+        <p class="lede">
+          Write the date in each box. Tick the box on a day you held (70+). At a glance you will see
+          the truth: not a perfect chain, but a pattern of returns.
+        </p>
+      </div>
+
+      <div class="cols-3">
+        <div>
+          <span class="label">Name</span>
+          <div class="rule-line" contenteditable="true"></div>
+        </div>
+        <div>
+          <span class="label">Start date</span>
+          <div class="rule-line" contenteditable="true"></div>
+        </div>
+        <div>
+          <span class="label">Day 60</span>
+          <div class="rule-line" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <span><b>01</b> The Awakening · days 1–7</span>
+        <span><b>05</b> Lust Mastery · days 29–35</span>
+        <span><b>02</b> Time as Sacred Trust · days 8–14</span>
+        <span><b>06</b> The Consistency Engine · days 36–42</span>
+        <span><b>03</b> The Disciplined Soul · days 15–21</span>
+        <span><b>07</b> Legacy Execution · days 43–49</span>
+        <span><b>04</b> Conquering the Nafs · days 22–28</span>
+        <span><b>08</b> Digital Purity · days 50–56</span>
+      </div>
+
+      <div class="map-grid">
+        <div class="map-cell"><span class="day">01</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">02</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">03</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">04</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">05</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell review"><span class="day">06</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">07</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">08</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">09</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">10</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+
+        <div class="map-cell"><span class="day">11</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">12</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell review"><span class="day">13</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">14</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">15</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">16</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">17</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">18</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">19</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell review"><span class="day">20</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+
+        <div class="map-cell milestone"><span class="diamond">◆</span><span class="day">21</span><span class="date-line" contenteditable="true"></span><span class="held">Milestone I</span></div>
+        <div class="map-cell"><span class="day">22</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">23</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">24</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">25</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">26</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell review"><span class="day">27</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">28</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">29</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">30</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+
+        <div class="map-cell"><span class="day">31</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">32</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">33</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell review"><span class="day">34</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">35</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">36</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">37</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">38</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">39</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">40</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+
+        <div class="map-cell review"><span class="day">41</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell milestone"><span class="diamond">◆</span><span class="day">42</span><span class="date-line" contenteditable="true"></span><span class="held">Milestone II</span></div>
+        <div class="map-cell"><span class="day">43</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">44</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">45</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">46</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">47</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell review"><span class="day">48</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">49</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">50</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+
+        <div class="map-cell"><span class="day">51</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">52</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">53</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">54</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell review"><span class="day">55</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">56</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">57</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">58</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell"><span class="day">59</span><span class="date-line" contenteditable="true"></span><span class="held"><span class="box"></span> held</span></div>
+        <div class="map-cell milestone"><span class="diamond">◆</span><span class="day">60</span><span class="date-line" contenteditable="true"></span><span class="held">The Return</span></div>
+      </div>
+
+      <div class="map-note">
+        <span>◆ milestone · lightly shaded = review day</span>
+        <span><strong style="color: var(--ink)">Never miss twice.</strong> One missed box is information. Two in a row is a decision.</span>
+      </div>
+
+      <div class="note-box mt3">
+        <span class="note-title">How to read your map at the end</span>
+        Do not count perfect days. Count returns. A map with gaps and quick recoveries is a map of a
+        man who learned to come back — which is the whole skill.
+      </div>
+
+      <footer class="foot">
+        <span><span data-brand>Mujāhid Mode</span> · The 60-day map</span>
+        <span data-footer>The disciplined Muslim code</span>
+      </footer>
+    </div>
+
+    <script src="brand.js"></script>
+    <script src="print.js"></script>
+  </body>
+</html>

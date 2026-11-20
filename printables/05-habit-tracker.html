@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The 60-Day Tracker · Mujāhid Mode</title>
+    <link rel="stylesheet" href="print.css" />
+    <style>
+      @page {
+        size: A4 landscape;
+        margin: 8mm;
+      }
+      table.tracker {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+      }
+      table.tracker th,
+      table.tracker td {
+        border: 0.4pt solid #bdb9ae;
+        padding: 0;
+        text-align: center;
+      }
+      table.tracker th {
+        font-size: 5.4pt;
+        font-weight: 600;
+        color: var(--muted);
+        height: 5mm;
+      }
+      table.tracker th.habit-head {
+        width: 32mm;
+        text-align: left;
+        padding-left: 1.6mm;
+        font-size: 6.2pt;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-bottom: 0.9pt solid var(--ink);
+      }
+      table.tracker th.day {
+        font-size: 6pt;
+        color: var(--ink);
+      }
+      table.tracker td.habit,
+      table.tracker th.habit {
+        text-align: left;
+        padding-left: 1.6mm;
+        font-size: 7.2pt;
+        height: 8.6mm;
+        white-space: nowrap;
+        font-weight: 400;
+        color: var(--ink);
+        text-transform: none;
+        letter-spacing: 0;
+      }
+      table.tracker td.cell {
+        height: 8.6mm;
+      }
+      td.review {
+        background: #faf8f1;
+      }
+      th.milestone,
+      td.milestone {
+        background: #f0ede2;
+      }
+      th.milestone {
+        color: var(--accent);
+      }
+      th.review {
+        color: var(--gold);
+      }
+      .week-start {
+        border-left: 0.9pt solid var(--ink) !important;
+      }
+      .score-row td.habit,
+      .score-row th.habit {
+        background: var(--wash);
+        font-weight: 600;
+      }
+      .tracker-key {
+        display: flex;
+        justify-content: space-between;
+        gap: 8mm;
+        margin-top: 2.4mm;
+        font-size: 6.4pt;
+        color: var(--muted);
+      }
+      .tracker-key b {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .page-label {
+        font-size: 6.4pt;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar no-print">
+      <a href="index.html">← All printables</a>
+      <span class="toolbar-title">Printable pack · Sheet 05</span>
+      <button type="button" data-print>Print / Save PDF</button>
+    </div>
+
+    <div class="sheet landscape">
+      <header class="masthead">
+        <div class="brand">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M24 4 44 24 24 44 4 24 24 4Z" stroke="currentColor" stroke-width="1.6" />
+            <path d="M24 12 36 24 24 36 12 24 24 12Z" fill="currentColor" fill-opacity=".1" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="24" cy="24" r="2.4" fill="currentColor" />
+          </svg>
+          <div>
+            <div class="brand-name" data-brand>Mujāhid Mode</div>
+            <div class="brand-tag" data-tagline>The disciplined Muslim code</div>
+          </div>
+        </div>
+        <div class="doc-meta">
+          <div class="doc-title">Sheet 05 · The 60-day tracker</div>
+          <div>Days 1–30 · A4 landscape</div>
+        </div>
+      </header>
+
+      <div class="title-block" style="margin: 4mm 0 2mm">
+        <p class="kicker">Sixty days · Write it down</p>
+        <div class="row" style="justify-content: space-between; align-items: flex-end">
+          <h1>The 60-Day Tracker</h1>
+          <div class="row" style="gap: 6mm; margin-bottom: 1mm">
+            <span class="page-label">Page 1 of 2 · Days 1–30</span>
+            <span class="small">Name <span class="inline-fill" contenteditable="true" style="min-width: 42mm"></span></span>
+            <span class="small">Start <span class="inline-fill" contenteditable="true" style="min-width: 26mm"></span></span>
+          </div>
+        </div>
+        <p class="lede" style="max-width: 230mm; margin-top: 1.5mm">
+          Fill one box per habit per day. <b>✓</b> = full · <b>•</b> = floor / partial · blank = missed.
+          Do not chase a perfect chain; chase the speed of your return.
+        </p>
+      </div>
+
+      <table class="tracker" data-table="1"></table>
+
+      <div class="tracker-key">
+        <span><b>✓</b> full · <b>•</b> floor · blank = missed · <b>shaded</b> = review or milestone · <b>bold line</b> = new week</span>
+        <span><strong style="color: var(--ink)">Never miss twice.</strong> The floor still counts.</span>
+      </div>
+
+      <div class="cols-3 mt3" style="gap: 5mm">
+        <div class="note-box" style="grid-column: span 2">
+          <span class="note-title">The five commitments</span>
+          Five prayers · a daily portion of Qur’an · dhikr · one protected deep block · guarded
+          attention (screen fast, phone outside the bedroom, lights out).
+        </div>
+        <div class="note-box">
+          <span class="note-title">The score</span>
+          Prayers 50 · Qur’an 15 · dhikr 10 · deep work 10 · screen fast 10 · lights out 5.
+          A day is held at 70.
+        </div>
+      </div>
+
+      <footer class="foot" style="margin-top: auto">
+        <span><span data-brand>Mujāhid Mode</span> · The 60-day tracker · page 1 of 2</span>
+        <span data-footer>The disciplined Muslim code</span>
+      </footer>
+    </div>
+
+    <div class="sheet landscape">
+      <header class="masthead">
+        <div class="brand">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M24 4 44 24 24 44 4 24 24 4Z" stroke="currentColor" stroke-width="1.6" />
+            <path d="M24 12 36 24 24 36 12 24 24 12Z" fill="currentColor" fill-opacity=".1" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="24" cy="24" r="2.4" fill="currentColor" />
+          </svg>
+          <div>
+            <div class="brand-name" data-brand>Mujāhid Mode</div>
+            <div class="brand-tag" data-tagline>The disciplined Muslim code</div>
+          </div>
+        </div>
+        <div class="doc-meta">
+          <div class="doc-title">Sheet 05 · The 60-day tracker</div>
+          <div>Days 31–60 · A4 landscape</div>
+        </div>
+      </header>
+
+      <div class="title-block" style="margin: 4mm 0 2mm">
+        <p class="kicker">The second half · Hold the line</p>
+        <div class="row" style="justify-content: space-between; align-items: flex-end">
+          <h1 class="small-title">Days 31–60</h1>
+          <div class="row" style="gap: 6mm; margin-bottom: 1mm">
+            <span class="page-label">Page 2 of 2 · Days 31–60</span>
+            <span class="small">Name <span class="inline-fill" contenteditable="true" style="min-width: 42mm"></span></span>
+          </div>
+        </div>
+        <p class="lede" style="max-width: 230mm; margin-top: 1.5mm">
+          The second half is where the old self negotiates. Keep the floor, keep the review, and
+          return within the hour. Day 42 is the midpoint; day 60 is the return.
+        </p>
+      </div>
+
+      <table class="tracker" data-table="2"></table>
+
+      <div class="tracker-key">
+        <span><b>✓</b> full · <b>•</b> floor · blank = missed · <b>shaded</b> = review or milestone · <b>bold line</b> = new week</span>
+        <span><strong style="color: var(--ink)">The floor still counts.</strong> Never zero.</span>
+      </div>
+
+      <div class="note-box mt3">
+        <span class="note-title">After day 60</span>
+        Keep the five commitments, the weekly review, one mission, and one weekly ship. Write the
+        day-61 plan on the milestone review sheet. The map ends; the mission does not.
+      </div>
+
+      <footer class="foot" style="margin-top: auto">
+        <span><span data-brand>Mujāhid Mode</span> · The 60-day tracker · page 2 of 2</span>
+        <span data-footer>The disciplined Muslim code</span>
+      </footer>
+    </div>
+
+    <script>
+      const HABITS = [
+        'Fajr',
+        'Dhuhr',
+        'Asr',
+        'Maghrib',
+        'Isha',
+        'Qur’an',
+        'Dhikr',
+        'Deep work',
+        'Screen fast',
+        'Lights out',
+      ]
+      const reviewDays = new Set([6, 13, 20, 27, 34, 41, 48, 55])
+      const milestones = new Set([21, 42, 60])
+
+      function buildTable(table, startDay, endDay) {
+        const thead = document.createElement('thead')
+        const headRow = document.createElement('tr')
+        const corner = document.createElement('th')
+        corner.className = 'habit-head'
+        corner.textContent = 'Habit'
+        headRow.appendChild(corner)
+        for (let d = startDay; d <= endDay; d += 1) {
+          const th = document.createElement('th')
+          th.className = 'day'
+          th.textContent = d
+          if (d % 7 === 1 && d !== 1) th.classList.add('week-start')
+          if (milestones.has(d)) th.classList.add('milestone')
+          if (reviewDays.has(d)) th.classList.add('review')
+          headRow.appendChild(th)
+        }
+        thead.appendChild(headRow)
+        table.appendChild(thead)
+
+        const tbody = document.createElement('tbody')
+        HABITS.forEach((habit) => {
+          const tr = document.createElement('tr')
+          const th = document.createElement('th')
+          th.className = 'habit'
+          th.textContent = habit
+          tr.appendChild(th)
+          for (let d = startDay; d <= endDay; d += 1) {
+            const td = document.createElement('td')
+            td.className = 'cell'
+            if (d % 7 === 1 && d !== 1) td.classList.add('week-start')
+            if (milestones.has(d)) td.classList.add('milestone')
+            if (reviewDays.has(d)) td.classList.add('review')
+            tr.appendChild(td)
+          }
+          tbody.appendChild(tr)
+        })
+
+        const scoreRow = document.createElement('tr')
+        scoreRow.className = 'score-row'
+        const scoreHead = document.createElement('th')
+        scoreHead.className = 'habit'
+        scoreHead.textContent = 'Daily score /100'
+        scoreRow.appendChild(scoreHead)
+        for (let d = startDay; d <= endDay; d += 1) {
+          const td = document.createElement('td')
+          td.className = 'cell'
+          if (d % 7 === 1 && d !== 1) td.classList.add('week-start')
+          if (milestones.has(d)) td.classList.add('milestone')
+          scoreRow.appendChild(td)
+        }
+        tbody.appendChild(scoreRow)
+        table.appendChild(tbody)
+      }
+
+      document.querySelectorAll('table.tracker').forEach((table) => {
+        const which = table.dataset.table
+        if (which === '1') buildTable(table, 1, 30)
+        else buildTable(table, 31, 60)
+      })
+    </script>
+    <script src="brand.js"></script>
+    <script src="print.js"></script>
+  </body>
+</html>

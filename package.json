@@ -9,6 +9,9 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "content:build": "tsx scripts/export-content.ts",
+    "printables:build": "node scripts/build-printables.mjs",
+    "printables:preview": "node scripts/preview-printables.mjs",
     "icons": "node scripts/generate-icons.mjs"
   },
   "dependencies": {
@@ -26,8 +29,11 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.3.0",
+    "pdf-lib": "^1.17.1",
+    "playwright-core": "^1.65.1",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^8.3.8",
     "vite-plugin-pwa": "^2.0.0",

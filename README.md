@@ -74,6 +74,27 @@ A day is **held** at 70. The weights keep the spine — salah and Qur'an — hea
   milestones, and the weekly review.
 - **Settings** — profile, plan, backup/restore JSON, and a full reset.
 
+## The written pack
+
+Beyond the app, the repository now includes an editable, sellable content layer:
+
+- **[The framework manuscript](content/framework/mujahid-mode-framework.md)** — the full thinking:
+  diagnosis, the five layers, the daily/weekly/60-day loops, tools, facilitation, and appendices.
+- **[The worksheet pack](content/framework/worksheets.md)** — ten fillable Markdown worksheets.
+- **[The curriculum](content/curriculum/mujahid-mode-curriculum.md)** — all 23 lessons in one
+  manuscript, plus per-module files, a 60-day schedule, lesson index, and a facilitator overview.
+- **[The printable pack](printables/README.md)** — eight print-ready planners and trackers (contract,
+  daily page, weekly review, wall map, 60-day tracker, milestone review, private log, Qur'an ledger).
+  Print from the HTML or use the **[complete PDF](printables/pdf/00-complete-pack.pdf)**.
+
+Everything is editable: the Markdown can be typeset into a book or imported into a course platform,
+and the printables are plain HTML/CSS with a one-file rebrand (`printables/brand.js`).
+
+<p align="center">
+  <img src="docs/screenshots/printable-contract.png" width="44%" alt="Printable 60-day contract sheet" />
+  <img src="docs/screenshots/printable-tracker.png" width="54%" alt="Printable 60-day habit tracker" />
+</p>
+
 ## Stack
 
 - React 19 + TypeScript + Vite
@@ -92,6 +113,9 @@ npm install
 npm run dev        # http://localhost:5173
 npm run build      # type-check + production build
 npm test           # plan, scoring, and streak tests
+npm run content:build     # export the Markdown curriculum from the app data
+npm run printables:build  # generate the printable PDFs (needs Edge or Chrome)
+npm run printables:preview # PNG previews of every printable sheet
 npm run preview    # serve the build
 npm run icons      # regenerate PWA icons from public/icon.svg (sharp)
 ```
@@ -107,7 +131,10 @@ src/
   store/useStore.ts       # persisted state + actions
   components/             # shell, UI primitives, daily system, lesson renderer
   pages/                  # onboarding, today, journey, lesson, tools, progress, settings
-docs/framework.md         # the operating system, in prose
+docs/framework.md         # the framework, developer overview
+content/                  # the written pack (framework, worksheets, curriculum)
+printables/               # print-ready HTML sheets + generated PDFs
+scripts/                  # content export, printable build, icon generation
 ```
 
 To add or edit a lesson, change `src/data/curriculum.ts`. The plan automatically slots lessons

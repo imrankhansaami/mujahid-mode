@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Printable Pack · Mujāhid Mode</title>
+    <style>
+      :root {
+        --ink: #161613;
+        --muted: #6f6d64;
+        --line: #d7d2c5;
+        --paper: #fffefa;
+        --bg: #efebe1;
+        --accent: #1e4b39;
+        --gold: #8a6b2f;
+        --serif: Georgia, 'Times New Roman', serif;
+        --sans: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.55;
+      }
+      .wrap { max-width: 1040px; margin: 0 auto; padding: 48px 24px 72px; }
+      header.top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-bottom: 20px;
+        border-bottom: 1.5px solid var(--ink);
+      }
+      .brand { display: flex; align-items: center; gap: 12px; }
+      .brand svg { width: 38px; height: 38px; color: var(--accent); }
+      .brand-name { font-family: var(--serif); font-size: 22px; line-height: 1; }
+      .brand-tag {
+        margin-top: 4px;
+        font-size: 9px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .top-note { font-size: 12px; color: var(--muted); text-align: right; }
+      .hero { padding: 56px 0 34px; max-width: 720px; }
+      .kicker {
+        margin: 0 0 10px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      h1 {
+        margin: 0;
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(38px, 6vw, 60px);
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+      }
+      .hero p { margin: 18px 0 0; color: var(--muted); max-width: 580px; }
+      .hero .meta-line {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        margin-top: 22px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 12px;
+      }
+      .card {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        padding: 24px 24px 20px;
+        display: flex;
+        flex-direction: column;
+        min-height: 250px;
+      }
+      .card .num {
+        font-family: var(--serif);
+        font-size: 13px;
+        color: var(--gold);
+        letter-spacing: 0.08em;
+      }
+      .card h2 {
+        margin: 8px 0 0;
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 1.05;
+      }
+      .card p { margin: 10px 0 0; font-size: 13.5px; color: var(--muted); flex: 1; }
+      .card .spec {
+        margin-top: 16px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .card .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 15px;
+        border-radius: 999px;
+        font-size: 12px;
+        text-decoration: none;
+        border: 1px solid var(--ink);
+        color: var(--ink);
+      }
+      .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+      .btn:hover { opacity: 0.82; }
+      .section { margin-top: 56px; }
+      .section h2 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 30px;
+        margin: 0 0 14px;
+      }
+      .section p { max-width: 720px; color: var(--muted); margin: 0 0 14px; }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 22px;
+      }
+      .step { border-top: 1.5px solid var(--accent); padding-top: 12px; }
+      .step .n { font-family: var(--serif); font-size: 22px; color: var(--gold); }
+      .step h3 { margin: 6px 0 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; }
+      .step p { font-size: 13px; margin: 0; }
+      .note {
+        margin-top: 40px;
+        padding: 18px 20px;
+        border-left: 3px solid var(--accent);
+        background: var(--paper);
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .note b { color: var(--ink); }
+      footer {
+        margin-top: 56px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 11px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+      a { color: inherit; }
+      @media (max-width: 760px) {
+        .wrap { padding: 28px 18px 48px; }
+        .grid, .steps { grid-template-columns: 1fr; }
+        .top-note { display: none; }
+        .hero { padding-top: 36px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <div class="brand">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M24 4 44 24 24 44 4 24 24 4Z" stroke="currentColor" stroke-width="1.4" />
+            <path d="M24 12 36 24 24 36 12 24 24 12Z" fill="currentColor" fill-opacity=".1" stroke="currentColor" stroke-width="1.1" />
+            <circle cx="24" cy="24" r="2.4" fill="currentColor" />
+          </svg>
+          <div>
+            <div class="brand-name">Mujāhid Mode</div>
+            <div class="brand-tag">The disciplined Muslim code</div>
+          </div>
+        </div>
+        <div class="top-note">Printable pack · First edition<br />A4 · print at 100%</div>
+      </header>
+
+      <section class="hero">
+        <p class="kicker">Paper for the sixty days</p>
+        <h1>The Printable Pack</h1>
+        <p>
+          Eight print-ready sheets for the 60-day system: the contract, the daily page, the weekly
+          review, the wall map, the habit tracker, the milestone review, the private log, and the
+          Qur’an ledger. Designed to be written on, not just downloaded.
+        </p>
+        <div class="meta-line">
+          <span>8 sheets</span>
+          <span>A4 · portrait + landscape</span>
+          <span>Ink-light</span>
+          <span>Editable HTML source</span>
+        </div>
+      </section>
+
+      <div class="grid">
+        <article class="card">
+          <span class="num">Sheet 01</span>
+          <h2>The 60-Day Contract</h2>
+          <p>
+            The niyyah, the winning day, the floor, the rules, one boundary, and a witness. Fill it
+            in before day one and read it again at every milestone.
+          </p>
+          <div class="spec">1 page · A4 portrait · before day one</div>
+          <div class="actions">
+            <a class="btn primary" href="01-contract.html">Open printable</a>
+            <a class="btn" href="pdf/01-contract.pdf">Download PDF</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="num">Sheet 02</span>
+          <h2>The Daily Page</h2>
+          <p>
+            Prayers, Qur’an, guardrails, three priorities, time blocks, the score, and one honest
+            line. One page per day, or print a stack for the week.
+          </p>
+          <div class="spec">1 page · A4 portrait · one per day</div>
+          <div class="actions">
+            <a class="btn primary" href="02-daily.html">Open printable</a>
+            <a class="btn" href="pdf/02-daily.pdf">Download PDF</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="num">Sheet 03</span>
+          <h2>The Weekly Review</h2>
+          <p>
+            The numbers, three wins, one leak, one change, next week’s three priorities, the witness
+            check-in, and a duʿāʾ. Twenty minutes, once a week.
+          </p>
+          <div class="spec">1 page · A4 portrait · weekly</div>
+          <div class="actions">
+            <a class="btn primary" href="03-weekly-review.html">Open printable</a>
+            <a class="btn" href="pdf/03-weekly-review.pdf">Download PDF</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="num">Sheet 04</span>
+          <h2>The 60-Day Map</h2>
+          <p>
+            Sixty boxes for dates and held days, with the eight module bands and the three milestones
+            marked. Put it on the wall. Let it tell the truth.
+          </p>
+          <div class="spec">1 page · A4 portrait · wall map</div>
+          <div class="actions">
+            <a class="btn primary" href="04-wall-map.html">Open printable</a>
+            <a class="btn" href="pdf/04-wall-map.pdf">Download PDF</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="num">Sheet 05</span>
+          <h2>The 60-Day Tracker</h2>
+          <p>
+            Ten habits across sixty days: the five prayers, Qur’an, dhikr, deep work, screen fast,
+            and lights out. One glance shows the pattern.
+          </p>
+          <div class="spec">2 pages · A4 landscape · habit grid</div>
+          <div class="actions">
+            <a class="btn primary" href="05-habit-tracker.html">Open printable</a>
+            <a class="btn" href="pdf/05-habit-tracker.pdf">Download PDF</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="num">Sheet 06</span>
+          <h2>The Milestone Review</h2>
+          <p>
+            Days 21 and 42 on one page; day 60 and the day-61 plan on the next. Honest accounting,
+            then a decision to continue.
+          </p>
+          <div class="spec">2 pages · A4 portrait · days 21, 42, 60</div>
+          <div class="actions">
+            <a class="btn primary" href="06-milestone-review.html">Open printable</a>
+            <a class="btn" href="pdf/06-milestone-review.pdf">Download PDF</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="num">Sheet 07</span>
+          <h2>The Private Log</h2>
+          <p>
+            The emergency protocol, a discreet urge log, the return protocol, and the pattern line.
+            Private by design. Keep it where only you can find it.
+          </p>
+          <div class="spec">1 page · A4 portrait · private</div>
+          <div class="actions">
+            <a class="btn primary" href="07-urge-log.html">Open printable</a>
+            <a class="btn" href="pdf/07-urge-log.pdf">Download PDF</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="num">Sheet 08</span>
+          <h2>The Qur’an Ledger</h2>
+          <p>
+            Thirty days of pages, surahs, and the one ayah that stayed. A plan sized to your season,
+            with the floor printed at the bottom.
+          </p>
+          <div class="spec">1 page · A4 portrait · 30 days</div>
+          <div class="actions">
+            <a class="btn primary" href="08-quran-log.html">Open printable</a>
+            <a class="btn" href="pdf/08-quran-log.pdf">Download PDF</a>
+          </div>
+        </article>
+      </div>
+
+      <section class="section">
+        <p class="kicker">Make it yours</p>
+        <h2>Editable by design</h2>
+        <p>
+          Every sheet is plain HTML and CSS. Change the brand, the wording, the colours, or the
+          fields. The source is yours to adapt for a circle, a client, or your own edition.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="n">01</div>
+            <h3>Rebrand</h3>
+            <p>Edit <code>brand.js</code> once — name, tagline, footer. It updates every sheet.</p>
+          </div>
+          <div class="step">
+            <div class="n">02</div>
+            <h3>Restyle</h3>
+            <p>Change the CSS variables at the top of <code>print.css</code>: accent, ink, paper.</p>
+          </div>
+          <div class="step">
+            <div class="n">03</div>
+            <h3>Reprint</h3>
+            <p>Open any sheet and print at 100% on A4. Or regenerate the PDFs from the source.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="note">
+        <b>Printing:</b> use A4, 100% scale (not “fit to page”), and enable “Background graphics”.
+        The habit tracker is landscape; the rest are portrait. The design is deliberately ink-light
+        so it remains readable in black and white.
+      </div>
+
+      <div class="note">
+        <b>Selling an edition?</b> The files are MIT licensed, so you may adapt and sell your own
+        version. Rebrand it, replace the content you do not own, credit the inspiration, and have
+        every religious reference verified. Do not imply endorsement by the original programme.
+      </div>
+
+      <footer>
+        <span>Mujāhid Mode · Printable pack · First edition</span>
+        <span>Move with niyyah, not hesitation.</span>
+      </footer>
+    </div>
+  </body>
+</html>
