@@ -1,0 +1,172 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #080a09;
+  --color-coal: #0c0f0d;
+  --color-surface: #111512;
+  --color-raised: #171d18;
+  --color-line: #27312a;
+  --color-line-soft: #1c231e;
+  --color-bone: #f2ecdf;
+  --color-muted: #97a199;
+  --color-faint: #6b756d;
+  --color-gold: #c9a55f;
+  --color-gold-dim: #8d7745;
+  --color-emerald: #4b9b73;
+  --color-emerald-deep: #123127;
+  --color-danger: #b4553f;
+  --color-amber: #c98f4a;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+
+  --radius-xl: 1.1rem;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    @apply bg-ink text-bone font-sans antialiased;
+    background-image:
+      radial-gradient(1100px 600px at 82% -10%, rgba(201, 165, 95, 0.07), transparent 60%),
+      radial-gradient(900px 600px at 0% 105%, rgba(75, 155, 115, 0.06), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(201, 165, 95, 0.28);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(201, 165, 95, 0.7);
+    outline-offset: 2px;
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+  }
+
+  .card-soft {
+    @apply rounded-2xl border border-line-soft bg-coal;
+  }
+
+  .eyebrow {
+    @apply text-[0.64rem] font-medium uppercase tracking-[0.22em] text-faint;
+  }
+
+  .display {
+    @apply font-display font-normal tracking-[-0.015em];
+  }
+
+  .hairline {
+    @apply border-t border-line-soft;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-gold,
+  .btn-outline,
+  .btn-ghost,
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply bg-bone text-ink hover:bg-white;
+  }
+
+  .btn-gold {
+    @apply bg-gold text-ink hover:bg-[#d8b672];
+  }
+
+  .btn-outline {
+    @apply border border-line text-bone hover:border-gold-dim hover:bg-raised;
+  }
+
+  .btn-ghost {
+    @apply text-muted hover:bg-raised hover:text-bone;
+  }
+
+  .btn-danger {
+    @apply border border-danger/40 text-danger hover:bg-danger/10;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-line bg-coal px-3.5 py-2.5 text-sm text-bone placeholder:text-faint focus:border-gold-dim focus:outline-none;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line px-2.5 py-1 text-[0.7rem] font-medium text-muted;
+  }
+
+  .arabic {
+    font-family: 'Traditional Arabic', 'Amiri', 'Scheherazade New', 'Noto Naskh Arabic', serif;
+    direction: rtl;
+    line-height: 2.1;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .geo {
+    background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a55f' stroke-opacity='0.08'%3E%3Cpath d='M32 4 60 32 32 60 4 32z'/%3E%3Cpath d='M32 14 50 32 32 50 14 32z'/%3E%3Cpath d='M4 32h56M32 4v56'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  .animate-rise {
+    animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
+}
