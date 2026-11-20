@@ -129,6 +129,7 @@ export function LustMastery() {
               <span className="eyebrow">What happened before it?</span>
               <input
                 className="field mt-1.5"
+                aria-label="What happened before the urge"
                 value={trigger}
                 onChange={(e) => setTrigger(e.target.value)}
                 placeholder="Late night, bored, alone, after an argument…"
@@ -152,6 +153,7 @@ export function LustMastery() {
               <span className="eyebrow">What did you do?</span>
               <input
                 className="field mt-1.5"
+                aria-label="What you did"
                 value={response}
                 onChange={(e) => setResponse(e.target.value)}
                 placeholder="Left the room, made wudu, called a friend, opened the app…"
@@ -185,6 +187,7 @@ export function LustMastery() {
               <span className="eyebrow">What did you learn? (optional)</span>
               <textarea
                 className="field mt-1.5 min-h-16 resize-y"
+                aria-label="What you learned"
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 placeholder="One sentence that makes the next time easier."

@@ -72,6 +72,7 @@ export function Dopamine() {
                 max={24}
                 step={0.5}
                 className="field w-24 text-right"
+                aria-label="Screen hours per day"
                 value={screenHours}
                 onChange={(e) => setScreenHours(Number(e.target.value))}
               />
@@ -83,6 +84,7 @@ export function Dopamine() {
                 min={0}
                 max={500}
                 className="field w-24 text-right"
+                aria-label="Phone pickups per day"
                 value={pickups}
                 onChange={(e) => setPickups(Number(e.target.value))}
               />
@@ -91,6 +93,7 @@ export function Dopamine() {
               <span className="text-xs text-muted">First phone use after waking</span>
               <select
                 className="field mt-1.5"
+                aria-label="First phone use after waking"
                 value={morningDelay}
                 onChange={(e) => setMorningDelay(e.target.value)}
               >

@@ -122,6 +122,7 @@ export function SettingsPage() {
                 <input
                   type="date"
                   className="field mt-1.5"
+                  aria-label="Start date"
                   value={state.profile.startDate}
                   onChange={(e) => updateProfile({ startDate: e.target.value })}
                 />
@@ -131,6 +132,7 @@ export function SettingsPage() {
                 <input
                   type="time"
                   className="field mt-1.5"
+                  aria-label="Sleep target"
                   value={state.profile.sleepTarget}
                   onChange={(e) => updateProfile({ sleepTarget: e.target.value })}
                 />
@@ -139,6 +141,7 @@ export function SettingsPage() {
                 <span className="eyebrow">Quran level</span>
                 <select
                   className="field mt-1.5"
+                  aria-label="Quran level"
                   value={state.profile.quranLevel}
                   onChange={(e) =>
                     updateProfile({ quranLevel: e.target.value as typeof state.profile.quranLevel })
@@ -156,6 +159,7 @@ export function SettingsPage() {
                   min={1}
                   max={30}
                   className="field mt-1.5"
+                  aria-label="Quran pages per day"
                   value={state.profile.quranTarget}
                   onChange={(e) => updateProfile({ quranTarget: Math.max(1, Number(e.target.value)) })}
                 />

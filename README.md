@@ -2,6 +2,8 @@
 
 **A 60-day discipline operating system for the Muslim who is done knowing and ready to do.**
 
+[Live app](https://imrankhansaami.github.io/mujahid-mode/) · [The framework](docs/framework.md) · [Deploy to your own Pages](.github/workflows/deploy.yml)
+
 Mujāhid Mode turns a curriculum into a working daily system: five prayers, a daily portion of
 Qur'an, dhikr, one deep block, guarded attention, and lights out — logged honestly, reviewed
 weekly, and built to survive the days you feel nothing.

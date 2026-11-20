@@ -251,6 +251,7 @@ export function Progress() {
           action={
             <select
               className="field w-auto py-1.5 text-xs"
+              aria-label="Review week"
               value={week}
               onChange={(e) => setWeek(Number(e.target.value))}
             >
@@ -335,6 +336,7 @@ function ReviewForm({
         <span className="eyebrow">Three wins</span>
         <textarea
           className="field mt-1.5 min-h-24 resize-y"
+          aria-label="Three wins"
           value={wins}
           onChange={(e) => setWins(e.target.value)}
           placeholder="What actually worked?"
@@ -344,6 +346,7 @@ function ReviewForm({
         <span className="eyebrow">The one leak</span>
         <textarea
           className="field mt-1.5 min-h-24 resize-y"
+          aria-label="The one leak"
           value={leaks}
           onChange={(e) => setLeaks(e.target.value)}
           placeholder="Where did the week drain?"
@@ -353,6 +356,7 @@ function ReviewForm({
         <span className="eyebrow">One change</span>
         <textarea
           className="field mt-1.5 min-h-24 resize-y"
+          aria-label="One change"
           value={oneChange}
           onChange={(e) => setOneChange(e.target.value)}
           placeholder="Not five. One."

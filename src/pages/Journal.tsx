@@ -67,7 +67,7 @@ export function Journal() {
           <SectionTitle title="Today’s entry" hint={formatLong(todayKey())} />
           <label className="block">
             <span className="eyebrow">Prompt</span>
-            <select className="field mt-1.5" value={prompt} onChange={(e) => setPrompt(e.target.value)}>
+            <select className="field mt-1.5" aria-label="Prompt" value={prompt} onChange={(e) => setPrompt(e.target.value)}>
               {PROMPTS.map((p) => (
                 <option key={p} value={p}>
                   {p}

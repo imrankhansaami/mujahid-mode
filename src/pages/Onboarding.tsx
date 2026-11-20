@@ -167,6 +167,7 @@ export function Onboarding() {
                 <span className="eyebrow">A winning day looks like</span>
                 <textarea
                   className="field mt-2 min-h-20 resize-y"
+                  aria-label="A winning day"
                   value={win}
                   onChange={(e) => setWin(e.target.value)}
                   placeholder="Five prayers on time, two pages of Quran, one deep work block, phone out of the bedroom."
@@ -230,6 +231,7 @@ export function Onboarding() {
                     type="range"
                     min={1}
                     max={20}
+                    aria-label="Daily Quran target in pages"
                     value={quranTarget}
                     onChange={(e) => setQuranTarget(Number(e.target.value))}
                     className="w-full accent-[#c9a55f]"
