@@ -440,7 +440,7 @@ export const MODULES: Module[] = [
           },
           {
             kind: 'quote',
-            text: 'The strong believer is better and more beloved to Allah than the weak believer, while there is good in both. Take up good deeds only as much as you are able.',
+            text: 'The strong believer is better and more beloved to Allah than the weak believer, while there is good in both. Seek that which benefits you, seek help from Allah, and do not give up.',
             source: 'Muslim',
           },
           {
@@ -1122,8 +1122,8 @@ export const MODULES: Module[] = [
           },
           {
             kind: 'quote',
-            text: 'Whoever treads a path seeking knowledge, Allah will make easy for him the path to Paradise.',
-            source: 'Muslim',
+            text: 'Seven are shaded by Allah on a day when there is no shade but His — among them a man invited by a woman of position and beauty, who says: “I fear Allah.”',
+            source: 'Bukhārī & Muslim',
           },
           {
             kind: 'p',
@@ -1705,7 +1705,7 @@ export const MODULES: Module[] = [
           {
             kind: 'ayah',
             translation:
-              'And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight and the heart — about all those you will be accountable.',
+              'And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight, and the heart — all of those will be questioned.',
             source: 'Qur’an 17:36',
           },
           { kind: 'h', text: 'The attention audit' },

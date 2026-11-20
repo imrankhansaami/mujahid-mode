@@ -8,6 +8,14 @@ weekly, and built to survive the days you feel nothing.
 
 It is a local-first PWA. No account, no server, no analytics. Your record stays in your browser.
 
+<p align="center">
+  <img src="docs/screenshots/today.jpg" width="31%" alt="Today: lesson focus, score, prayers, Quran, guardrails" />
+  <img src="docs/screenshots/progress.jpg" width="31%" alt="Progress: consistency, 60-day heatmap and score" />
+  <img src="docs/screenshots/journey.jpg" width="31%" alt="Journey: the 60-day map of modules and milestones" />
+</p>
+
+*Screenshots use sample data.*
+
 ```bash
 npm install
 npm run dev
