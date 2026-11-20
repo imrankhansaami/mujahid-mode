@@ -7,6 +7,7 @@ and CSS so you can edit, rebrand, translate, print, or sell your own edition.
 
 | # | Sheet | Pages | Paper | Use |
 | --- | --- | ---: | --- | --- |
+| 00 | Cover | 1 | A4 portrait | The PDF pack cover (not a fillable sheet) |
 | 01 | [The 60-Day Contract](01-contract.html) | 1 | A4 portrait | Niyyah, winning day, floor, rules, witness |
 | 02 | [The Daily Page](02-daily.html) | 1 | A4 portrait | Prayers, Qur'an, guardrails, priorities, score |
 | 03 | [The Weekly Review](03-weekly-review.html) | 1 | A4 portrait | Numbers, wins, leak, one change, witness |
@@ -16,7 +17,7 @@ and CSS so you can edit, rebrand, translate, print, or sell your own edition.
 | 07 | [The Private Log](07-urge-log.html) | 1 | A4 portrait | Emergency protocol, urge log, return protocol |
 | 08 | [The Qur'an Ledger](08-quran-log.html) | 1 | A4 portrait | 30 days of pages, surahs, and one ayah |
 
-**PDFs:** [`pdf/00-complete-pack.pdf`](pdf/00-complete-pack.pdf) (all 10 pages) or the individual
+**PDFs:** [`pdf/00-complete-pack.pdf`](pdf/00-complete-pack.pdf) (all 11 pages) or the individual
 files in [`pdf/`](pdf/).
 
 ## Printing
@@ -126,6 +127,7 @@ printables/
   print.css                   shared print/screen styles
   print.js                    print button, checkboxes, editable fields
   brand.js                    one-file rebrand
+  00-cover.html
   01-contract.html
   02-daily.html
   03-weekly-review.html

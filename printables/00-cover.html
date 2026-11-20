@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Printable Pack · Mujāhid Mode</title>
+    <link rel="stylesheet" href="print.css" />
+    <style>
+      .cover-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10mm 0;
+      }
+      .cover-body h1 {
+        font-size: 46pt;
+        line-height: 0.98;
+        max-width: 150mm;
+      }
+      .cover-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3mm 10mm;
+        margin-top: 14mm;
+        max-width: 165mm;
+      }
+      .cover-item {
+        display: flex;
+        gap: 3mm;
+        padding-top: 1.6mm;
+        border-top: 0.6pt solid var(--line);
+      }
+      .cover-item .n {
+        font-family: var(--serif);
+        font-size: 9pt;
+        color: var(--gold);
+      }
+      .cover-item .t {
+        font-size: 8pt;
+        line-height: 1.35;
+      }
+      .cover-item .t small {
+        display: block;
+        color: var(--muted);
+        font-size: 6.4pt;
+        margin-top: 0.5mm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar no-print">
+      <a href="index.html">← All printables</a>
+      <span class="toolbar-title">Printable pack · Cover</span>
+      <button type="button" data-print>Print / Save PDF</button>
+    </div>
+
+    <div class="sheet">
+      <header class="masthead">
+        <div class="brand">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M24 4 44 24 24 44 4 24 24 4Z" stroke="currentColor" stroke-width="1.6" />
+            <path d="M24 12 36 24 24 36 12 24 24 12Z" fill="currentColor" fill-opacity=".1" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="24" cy="24" r="2.4" fill="currentColor" />
+          </svg>
+          <div>
+            <div class="brand-name" data-brand>Mujāhid Mode</div>
+            <div class="brand-tag" data-tagline>The disciplined Muslim code</div>
+          </div>
+        </div>
+        <div class="doc-meta">
+          <div class="doc-title">The printable pack</div>
+          <div>First edition · A4</div>
+        </div>
+      </header>
+
+      <div class="cover-body">
+        <p class="kicker">A 60-day discipline operating system</p>
+        <h1>The Printable Pack</h1>
+        <p class="lede" style="max-width: 132mm; font-size: 10pt">
+          Eight sheets for the sixty days: the contract, the daily page, the weekly review, the wall
+          map, the habit tracker, the milestone review, the private log, and the Qur’an ledger.
+          Print them, write on them, keep them.
+        </p>
+
+        <div class="cover-list">
+          <div class="cover-item"><span class="n">01</span><span class="t">The 60-Day Contract<small>Niyyah, standard, witness</small></span></div>
+          <div class="cover-item"><span class="n">02</span><span class="t">The Daily Page<small>Prayer, Qur’an, score, line</small></span></div>
+          <div class="cover-item"><span class="n">03</span><span class="t">The Weekly Review<small>Numbers, leak, one change</small></span></div>
+          <div class="cover-item"><span class="n">04</span><span class="t">The 60-Day Map<small>Dates and held days on the wall</small></span></div>
+          <div class="cover-item"><span class="n">05</span><span class="t">The 60-Day Tracker<small>Ten habits across sixty days</small></span></div>
+          <div class="cover-item"><span class="n">06</span><span class="t">The Milestone Review<small>Days 21, 42, 60 + day 61</small></span></div>
+          <div class="cover-item"><span class="n">07</span><span class="t">The Private Log<small>Protocol, urge log, return</small></span></div>
+          <div class="cover-item"><span class="n">08</span><span class="t">The Qur’an Ledger<small>Thirty days of pages and ayah</small></span></div>
+        </div>
+
+        <div class="note-box" style="margin-top: 14mm; max-width: 150mm">
+          <span class="note-title">Printing</span>
+          A4 · 100% scale · background graphics on. The habit tracker is landscape; the rest are
+          portrait. The design is ink-light and remains readable in black and white.
+        </div>
+      </div>
+
+      <blockquote class="pullquote">
+        “The most beloved deeds to Allah are those done consistently, even if they are small.”
+        <span class="small" style="white-space: nowrap">— Bukhārī &amp; Muslim</span>
+      </blockquote>
+
+      <footer class="foot">
+        <span><span data-brand>Mujāhid Mode</span> · The printable pack</span>
+        <span data-footer>The disciplined Muslim code</span>
+      </footer>
+    </div>
+
+    <script src="brand.js"></script>
+    <script src="print.js"></script>
+  </body>
+</html>

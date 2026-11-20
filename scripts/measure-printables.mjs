@@ -15,6 +15,7 @@ const page = await browser.newPage({ viewport: { width: 794, height: 1123 } })
 await page.emulateMedia({ media: 'print' })
 
 const files = [
+  '00-cover.html',
   '01-contract.html',
   '02-daily.html',
   '03-weekly-review.html',

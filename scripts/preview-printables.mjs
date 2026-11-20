@@ -16,6 +16,7 @@ const executablePath = [
 const browser = await chromium.launch({ executablePath, headless: true })
 
 const files = [
+  '00-cover',
   '01-contract',
   '02-daily',
   '03-weekly-review',

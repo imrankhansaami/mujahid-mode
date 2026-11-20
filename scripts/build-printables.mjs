@@ -10,6 +10,7 @@ const outDir = join(printablesDir, 'pdf')
 mkdirSync(outDir, { recursive: true })
 
 const SHEETS = [
+  '00-cover.html',
   '01-contract.html',
   '02-daily.html',
   '03-weekly-review.html',
